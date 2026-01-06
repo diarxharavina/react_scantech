@@ -10,6 +10,8 @@ const App = () => {
     const saved = localStorage.getItem(STORAGE_KEY);
     return saved ? JSON.parse(saved) : [];
   });
+
+  //usestate to see which appearance should take place
   const [isDarkMode, setIsDarkMode] = useState(() => {
     const savedTheme = localStorage.getItem(THEME_KEY);
     if (!savedTheme) return false;
@@ -20,6 +22,7 @@ const App = () => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
   }, [tasks]);
 
+  //when dark mode is enabled change the colors
   useEffect(() => {
     localStorage.setItem(THEME_KEY, isDarkMode ? "dark" : "light");
     document.body.classList.toggle("dark-body", isDarkMode);
@@ -27,7 +30,7 @@ const App = () => {
 
   const onAddTask = (title, description) => {
     const newTask = {
-      id: crypto.randomUUID ? crypto.randomUUID() : String(Date.now()),
+      id: crypto.randomUUID ? crypto.randomUUID() : String(Date.now()), //create a random id
       title,
       description,
       completed: false,
@@ -42,6 +45,7 @@ const App = () => {
     );
   };
 
+  //filter method to not mutate the task array
   const onDelete = (id) => {
     setTasks((prev) => prev.filter((t) => t.id !== id));
   };

@@ -1,0 +1,19 @@
+.task-form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.task-input {
+  padding: 10px 12px;
+  border: 1px solid black;
+  border-radius: 8px;
+  min-width: 220px;
+}
+
+.task-btn {
+  padding: 10px 16px;
+  border: 1px solid black;
+  border-radius: 8px;
+  cursor: pointer;
+}

@@ -46,6 +46,12 @@ const App = () => {
     setTasks((prev) => prev.filter((t) => t.id !== id));
   };
 
+  const onEdit = (id, payload) => {
+    setTasks((prev) =>
+      prev.map((t) => (t.id === id ? { ...t, ...payload } : t))
+    );
+  };
+
   return (
     <div
       className={[
@@ -76,6 +82,7 @@ const App = () => {
           tasks={tasks}
           onToggle={onToggle}
           onDelete={onDelete}
+          onEdit={onEdit}
         />
       </div>
     </div>

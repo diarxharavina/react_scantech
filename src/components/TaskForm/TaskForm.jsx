@@ -22,7 +22,7 @@ const TaskForm = ({ onAddTask, isDarkMode }) => {
     <form
       onSubmit={onSubmit}
       className={[
-        "w-[90vw] max-w-4xl rounded-2xl p-4 shadow-sm border",
+        "w-full max-w-4xl rounded-2xl p-4 shadow-sm border",
         isDarkMode ? "bg-neutral-900 border-white/15" : "bg-white border-black/10",
       ].join(" ")}
     >
